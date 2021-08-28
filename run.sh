@@ -1,3 +1,5 @@
 #!/bin/bash
 
-python "./snak.py" > "./snak.log"
+
+cd '/usr/local/games/'
+sudo python "./snak.py"
