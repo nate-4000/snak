@@ -15,14 +15,6 @@ print("importing random")
 import random
 print("imports done")
 
-# Difficulty settings
-# Easy      ->  10
-# Medium    ->  25
-# Hard      ->  40
-# Harder    ->  60
-# Impossible->  120
-speed = 10
-
 # Window size
 frame_size_x = 720
 frame_size_y = 480
@@ -51,51 +43,75 @@ print("init done")
 print("defining wait")
 from pygame.locals import *
 def wait():
-    while event.type == pygame.KEYDOWN:
+  while True:
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
               if event.key == pygame.K_F5:
                 print("f5 pressed")
                 restart = True
                 return
-              elif event.key != pygame.K_F5:
-                print("any key pressed")
-                restart = False
-                return
-              if event.type == QUIT:
+              elif event.key == pygame.K_RETURN:
+                print("enter pressed")
+                print("quitting")
+                pygame.quit()
+                sys.exit()
+        if event.type == QUIT:
                 print("closed from wait()")
                 pygame.quit()
                 sys.exit()
 print("wait define done")
 
-# Colors (R, G, B)
-print("defining colors")
-black = pygame.Color(0, 0, 0)
-white = pygame.Color(255, 255, 255)
-red = pygame.Color(255, 0, 0)
-green = pygame.Color(0, 255, 0)
-blue = pygame.Color(0, 0, 255)
-print("color define done")
-
-# FPS (frames per second) controller
-print("defining fps controller")
-fps_controller = pygame.time.Clock()
-print("fps controller define done")
-
-# Game variables
-print("defining vars")
-print("starting snake vars define")
-snake_pos = [100, 50]
-snake_body = [[100, 50], [100-10, 50], [100-(2*10), 50]]
-print("snake vars done; now starting food vars")
-food_pos = [random.randrange(1, (frame_size_x//10)) * 10, random.randrange(1, (frame_size_y//10)) * 10]
-food_spawn = True
-print("food vars done; now starting direction vars")
-direction = "right"
-change_to = direction
-print("direction vars done; now defining score")
-score = 0
-screen_draw_num = 0
-restart = True
-print("defining vars done")
+def initgame():
+    global speed
+    global black
+    global white
+    global red
+    global green
+    global blue
+    global fps_controller
+    global snake_pos
+    global snake_body
+    global food_pos
+    global food_spawn
+    global direction
+    global change_to
+    global score
+    global screen_draw_num
+    global restart
+    
+    #speed
+    speed = 10
+    
+    # Colors (R, G, B)
+    print("defining colors")
+    black = pygame.Color(0, 0, 0)
+    white = pygame.Color(255, 255, 255)
+    red = pygame.Color(255, 0, 0)
+    green = pygame.Color(0, 255, 0)
+    blue = pygame.Color(0, 0, 255)
+    print("color define done")
+    
+    # FPS (frames per second) controller
+    print("defining fps controller")
+    fps_controller = pygame.time.Clock()
+    print("fps controller define done")
+    
+    # Game variables
+    print("defining vars")
+    print("starting snake vars define")
+    snake_pos = [100, 50]
+    snake_body = [[100, 50], [100-10, 50], [100-(2*10), 50]]
+    print("snake vars done; now starting food vars")
+    food_pos = [random.randrange(1, (frame_size_x//10)) * 10, random.randrange(1, (frame_size_y//10)) * 10]
+    food_spawn = True
+    print("food vars done; now starting direction vars")
+    direction = "right"
+    change_to = direction
+    print("direction vars done; now defining score")
+    score = 0
+    screen_draw_num = 0
+    restart = True
+    print("defining vars done")
 
 # Game Over
 print("game over event define")
@@ -117,6 +133,7 @@ def game_over():
     print("screen refresh number: " + str(screen_draw_num))
     print("waiting")
     wait()
+    initgame()
 print("game over event define done")
 
 # Score
@@ -134,7 +151,7 @@ def show_score(choice, color, font, size, on_end):
         # pygame.display.flip()
     elif on_end == True:
         score_font = pygame.font.SysFont(font, size)
-        score_surface = score_font.render("score : " + str(score) + "       press F5 to restart or press the any key to exit", True, color)
+        score_surface = score_font.render("score : " + str(score) + "       press F5 to restart or press the return key to exit", True, color)
         score_rect = score_surface.get_rect()
         if choice == 1:
             score_rect.midtop = (frame_size_x/10, 15)
@@ -145,26 +162,10 @@ def show_score(choice, color, font, size, on_end):
 print("score define done")
 
 print("starting game")
+initgame()
 
 # Main logic
 if restart == True:
-  
-  speed = 10
-  print("defining vars")
-  print("starting snake vars define")
-  snake_pos = [100, 50]
-  snake_body = [[100, 50], [100-10, 50], [100-(2*10), 50]]
-  print("snake vars done; now starting food vars")
-  food_pos = [random.randrange(1, (frame_size_x//10)) * 10, random.randrange(1, (frame_size_y//10)) * 10]
-  food_spawn = True
-  print("food vars done; now starting direction vars")
-  direction = "right"
-  change_to = direction
-  print("direction vars done; now defining score")
-  score = 0
-  screen_draw_num = 0
-  restart = True
-  print("defining vars done")
   
   while True:
       for event in pygame.event.get():
