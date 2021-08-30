@@ -51,7 +51,7 @@ print("init done")
 print("defining wait")
 from pygame.locals import *
 def wait():
-    while True:
+    while event.type == pygame.KEYDOWN:
               if event.key == pygame.K_F5:
                 print("f5 pressed")
                 restart = True
@@ -148,6 +148,24 @@ print("starting game")
 
 # Main logic
 if restart == True:
+  
+  speed = 10
+  print("defining vars")
+  print("starting snake vars define")
+  snake_pos = [100, 50]
+  snake_body = [[100, 50], [100-10, 50], [100-(2*10), 50]]
+  print("snake vars done; now starting food vars")
+  food_pos = [random.randrange(1, (frame_size_x//10)) * 10, random.randrange(1, (frame_size_y//10)) * 10]
+  food_spawn = True
+  print("food vars done; now starting direction vars")
+  direction = "right"
+  change_to = direction
+  print("direction vars done; now defining score")
+  score = 0
+  screen_draw_num = 0
+  restart = True
+  print("defining vars done")
+  
   while True:
       for event in pygame.event.get():
           if event.type == pygame.QUIT:
