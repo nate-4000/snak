@@ -17,7 +17,7 @@ print("imports done")
 
 # Window size
 frame_size_x = 720
-frame_size_y = 480
+frame_size_y = 720
 
 print("checking for errors")
 # Checks for errors encountered
@@ -117,8 +117,8 @@ def initgame():
 print("game over event define")
 def game_over():
     print("death")
-    my_font = pygame.font.SysFont("times new roman", 90)
-    game_over_surface = my_font.render("u died", True, red)
+    my_font = pygame.font.SysFont("times new roman", 70)
+    game_over_surface = my_font.render("u have commited died", True, red)
     game_over_rect = game_over_surface.get_rect()
     game_over_rect.midtop = (frame_size_x/2, frame_size_y/4)
     game_window.fill(black)
@@ -151,7 +151,7 @@ def show_score(choice, color, font, size, on_end):
         # pygame.display.flip()
     elif on_end == True:
         score_font = pygame.font.SysFont(font, size)
-        score_surface = score_font.render("score : " + str(score) + "       press F5 to restart or press the return key to exit", True, color)
+        score_surface = score_font.render("score : " + str(score) + "       push da F5 to restrt r push da return kiy to stap", True, color)
         score_rect = score_surface.get_rect()
         if choice == 1:
             score_rect.midtop = (frame_size_x/10, 15)
@@ -201,6 +201,15 @@ if restart == True:
                   print("ESC")
                   print("closed from main logic")
                   pygame.event.post(pygame.event.Event(pygame.QUIT))
+              # Toggle fullscreen
+              if event.key == pygame.K_F11:
+                  print("F11")
+                  print("entering fullscreen")
+                  DISPLAYSURF = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+              if event.key == pygame.K_F12:
+                  print("F12")
+                  print("exiting fullscreen")
+                  game_window = pygame.display.set_mode((frame_size_x, frame_size_y))
       # Making sure the snake cannot move in the opposite direction instantaneously
       if change_to == "up" and direction != "down":
           direction = "up"
@@ -249,7 +258,7 @@ if restart == True:
           screen_draw_num += 1
           pygame.draw.rect(game_window, green, pygame.Rect(pos[0], pos[1], 10, 10))
       # Snake food
-      pygame.draw.rect(game_window, white, pygame.Rect(food_pos[0], food_pos[1], 10, 10))
+      pygame.draw.rect(game_window, red, pygame.Rect(food_pos[0], food_pos[1], 10, 10))
       # Game Over conditions
       # Getting out of bounds
       if snake_pos[0] < 0 or snake_pos[0] > frame_size_x-10:
