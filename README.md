@@ -3,6 +3,7 @@ Snak, a snake clone with bad spelling
 
 
 # installation and setup
+## debian/ubuntu
 Installation is actually pretty simple, just follow these steps:
 1. Download the files
    1. use `git clone`
