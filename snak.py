@@ -127,7 +127,7 @@ def game_over():
     pygame.display.flip()
     print("score: " + str(score))
     print("snake head position: " + str(snake_pos))
-    print("other snake parts: " + str(block))
+    print("snake tail position: " + str(block))
     print("facing: " + str(direction))
     print("speed: "  + str(speed))
     print("screen refresh number: " + str(screen_draw_num))
