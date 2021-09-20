@@ -117,8 +117,8 @@ def initgame():
 print("game over event define")
 def game_over():
     print("death")
-    my_font = pygame.font.SysFont("times new roman", 70)
-    game_over_surface = my_font.render("u have commited died", True, red)
+    big_font = pygame.font.SysFont("times new roman", 70)
+    game_over_surface = big_font.render("u have commited died", True, red)
     game_over_rect = game_over_surface.get_rect()
     game_over_rect.midtop = (frame_size_x/2, frame_size_y/4)
     game_window.fill(black)

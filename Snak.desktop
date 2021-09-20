@@ -6,6 +6,6 @@ Terminal=false
 Exec=/usr/local/games/snak
 Name=Snak
 Categories=Game;ActionGame;
-Icon=/usr/local/games/Snak/snak-hi-res.logo.png
+Icon=/usr/local/games/Snak/logo/snak-hi-res.logo.png
 GenericName[en_US.UTF-8]=A snake clone with bad spelling
 Keywords=snake;pygame;
