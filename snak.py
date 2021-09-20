@@ -5,15 +5,17 @@ Snak
 A snake clone with bad spelling
 Made with PyGame
 """
-print("importing pygame")
-import pygame
-print("importing sys")
-import sys
-print("importing time")
-import time
-print("importing random")
-import random
-print("imports done")
+
+if True: #Made an if for the sake of collapsing
+  print("importing pygame")
+  import pygame
+  print("importing sys")
+  import sys
+  print("importing time")
+  import time
+  print("importing random")
+  import random
+  print("imports done")
 
 # Window size
 frame_size_x = 720
