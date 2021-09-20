@@ -17,7 +17,7 @@ print("imports done")
 
 # Window size
 frame_size_x = 720
-frame_size_y = 720
+frame_size_y = 480
 
 print("checking for errors")
 # Checks for errors encountered

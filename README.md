@@ -11,3 +11,15 @@ Installation is actually pretty simple, just follow these steps:
 2. Copy the folder into `/usr/local/games/`
 3. Move the .desktop to `/usr/share/applications/`
 4. Move `snak` (`application/x-shellscript`) into the above folder
+## windows
+Installation is not as simple for windows.
+
+1. Get yourself a python3.*
+2. Download pygame
+	1. `pip install pygame`
+	2. Go to the dang website
+3. Download visual studio 20**
+4. Clone the repository
+5. Realize `snak`, `Snak.desktop`, and `run.sh` are useless and delete them
+6. Run `snak.py`
+7. (Optional) Give up and double boot linux
