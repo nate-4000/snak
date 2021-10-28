@@ -11,7 +11,7 @@ Installation is actually pretty simple, just follow these steps:
 2. Copy the folder into `/usr/local/games/`
 3. Move the .desktop to `/usr/share/applications/`
 4. Move `snak` (`application/x-shellscript`) into the above folder
-## windows
+## windows (the hard way)
 Installation is not as simple for windows.
 
 1. Get yourself a python3.*
@@ -23,3 +23,10 @@ Installation is not as simple for windows.
 5. Realize `snak`, `Snak.desktop`, and `run.sh` are useless and delete them
 6. Run `snak.py`
 7. (Optional) Give up and double boot linux
+## windows (the easy way)
+The easy way?
+
+Uhh...
+1. download the latest release tagged windows
+2. run it
+good job you did it
