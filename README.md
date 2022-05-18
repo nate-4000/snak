@@ -27,6 +27,6 @@ Installation is not as simple for windows.
 The easy way?
 
 Uhh...
-1. download the latest release tagged windows
+1. download the latest release tagged windowsv*.*
 2. run it
 good job you did it
