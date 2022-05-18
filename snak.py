@@ -63,6 +63,7 @@ def wait():
                 sys.exit()
 print("wait define done")
 
+# initgame: inits the game so we can restart, many headaches were made in the making of this function
 def initgame():
     global speed
     global black
@@ -119,7 +120,7 @@ def initgame():
 print("game over event define")
 def game_over():
     print("death")
-    big_font = pygame.font.SysFont("times new roman", 70)
+    big_font = pygame.font.SysFont("comic sans", 70) # comic sans because futw
     game_over_surface = big_font.render("u have commited died", True, red)
     game_over_rect = game_over_surface.get_rect()
     game_over_rect.midtop = (frame_size_x/2, frame_size_y/4)
